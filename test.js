@@ -7,9 +7,9 @@ const hourhand = document.querySelector("[data-hours]");
 function setClock(){
     console.log("Clock Changed");
     const currentDate = new Date();
-    let seconds = currentDate.getSeconds() /60;
-    let minutes = currentDate.getMinutes() /60;
-    let hours = currentDate.getHours();
+    let seconds = currentDate.getSeconds() * 6;
+    let minutes = currentDate.getMinutes() * 6;
+    let hours = currentDate.getHours() * 15 - 60;
     console.log("Seconds is " + seconds);
     setRotation(sechand, seconds);
     setRotation(minhand, minutes);
@@ -17,7 +17,7 @@ function setClock(){
 }
 
 function setRotation(hand, rotation){
-    hand.style.setProperty(' --rotation', rotation * 360);
+    hand.style.setProperty('--rotation', rotation)
 }
 
 setInterval(setClock, 1000);
